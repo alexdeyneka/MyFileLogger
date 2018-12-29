@@ -1,37 +1,46 @@
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-
-import static java.lang.Thread.sleep;
+import java.util.Map;
 
 public class App {
     private Client client;
-    private EventLogger eventLogger;
+    private EventLogger defaultLogger;
+    private Map<EventType, EventLogger> loggers;
 
-    public App(Client client, EventLogger logger) {
+    public App(Client client, EventLogger logger, Map<EventType,EventLogger> loggers) {
         this.client = client;
-        this.eventLogger = logger;
+        this.defaultLogger = logger;
+        this.loggers = loggers;
     }
 
-    private void logEvent(Event event, String s) {
-        event.setMsg(s);
-        try {
-            eventLogger.logEvent(event);
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void logEvent(EventType eventType, Event event, String s) throws IOException {
+        String message = s.replaceAll(client.getId(), client.getName());
+        event.setMsg(message);
+
+        EventLogger logger = loggers.get(eventType);
+        if (logger == null) {
+            logger = defaultLogger;
         }
+        logger.logEvent(event);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws IOException {
         ConfigurableApplicationContext cac = new ClassPathXmlApplicationContext(
                 "spring.xml");
 
         App app = (App) cac.getBean("app");
-        app.logEvent((Event)cac.getBean("event"), "some message 1");
-        sleep(1000);
-        app.logEvent((Event)cac.getBean("event"), "some message 2");
+
+        Event event = cac.getBean(Event.class);
+        app.logEvent(EventType.INFO, event, "Some event for 1");
+
+        event = cac.getBean(Event.class);
+        app.logEvent(EventType.ERROR, event, "Some event for 2");
+
+        event = cac.getBean(Event.class);
+        app.logEvent(null, event, "Some event for 3");
+
         cac.close();
     }
 }

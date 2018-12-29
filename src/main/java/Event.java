@@ -21,6 +21,6 @@ public class Event {
                 "id=" + id +
                 ", msg='" + msg + '\'' +
                 ", date=" + date +
-                '}' + "\n";
+                '}';
     }
 }

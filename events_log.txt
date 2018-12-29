@@ -2,3 +2,9 @@ Event{id=4, msg='some message 1', date=Sat Dec 29 20:36:18 EET 2018}
 Event{id=1, msg='some message 2', date=Sat Dec 29 20:36:19 EET 2018}
 Event{id=2, msg='some message 1', date=Sat Dec 29 20:37:51 EET 2018}
 Event{id=0, msg='some message 2', date=Sat Dec 29 20:37:52 EET 2018}
+Event{id=4, msg='some message 1', date=Sat Dec 29 21:59:58 EET 2018}
+Event{id=0, msg='some message 2', date=Sat Dec 29 21:59:59 EET 2018}
+Event{id=7, msg='Some event for 2', date=Sat Dec 29 22:53:16 EET 2018}
+Event{id=1, msg='Some event for 2', date=Sat Dec 29 22:53:38 EET 2018}
+Event{id=8, msg='Some event for 2', date=Sat Dec 29 22:54:30 EET 2018}
+Event{id=4, msg='Some event for 2', date=Sat Dec 29 22:56:30 EET 2018}
