@@ -1,3 +1,7 @@
+package loggers;
+
+import beans.Event;
+
 import java.io.IOException;
 import java.util.List;
 

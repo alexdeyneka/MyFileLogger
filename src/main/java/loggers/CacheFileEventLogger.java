@@ -1,3 +1,7 @@
+package loggers;
+
+import beans.Event;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +12,7 @@ public class CacheFileEventLogger extends FileEventLogger {
     public CacheFileEventLogger(String fileName, int cacheSize) {
         super(fileName);
         this.cacheSize = cacheSize;
-        this.cache = new ArrayList<Event>(cacheSize);
+        this.cache = new ArrayList<>(cacheSize);
     }
 
     public void destroy() {

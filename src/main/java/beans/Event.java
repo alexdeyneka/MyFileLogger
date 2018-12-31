@@ -1,3 +1,5 @@
+package beans;
+
 import java.util.Date;
 import java.util.Random;
 
@@ -11,13 +13,13 @@ public class Event {
         this.date = date;
     }
 
-    void setMsg(String msg) {
+    public void setMsg(String msg) {
         this.msg = msg;
     }
 
     @Override
     public String toString() {
-        return "Event{" +
+        return "beans.Event{" +
                 "id=" + id +
                 ", msg='" + msg + '\'' +
                 ", date=" + date +
