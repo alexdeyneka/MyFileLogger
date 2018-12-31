@@ -11,3 +11,4 @@ beans.Event{id=4, msg='Some event for 2', date=Sat Dec 29 22:56:30 EET 2018}
 beans.Event{id=9, msg='Some event for 2', date=Sat Dec 29 23:07:15 EET 2018}
 beans.Event{id=6, msg='Some event for 2', date=Mon Dec 31 13:12:50 EET 2018}
 beans.Event{id=2, msg='Some event for 2', date=Mon Dec 31 13:13:04 EET 2018}
+beans.Event{id=0, msg='Some event for 2', date=Mon Dec 31 15:03:05 EET 2018}
